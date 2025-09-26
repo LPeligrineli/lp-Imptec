@@ -22,104 +22,37 @@
     <!-- Video Modal Styles -->
     <style>
       .video-container {
-        text-align: center;
-        padding: 40px 20px;
+        padding: 20px 0;
       }
 
-      .video-play-btn {
-        background: linear-gradient(45deg, #1ab394, #1ab394);
-        border: none;
-        border-radius: 50px;
-        padding: 20px 40px;
-        font-size: 18px;
-        font-weight: 600;
-        color: white;
-        box-shadow: 0 8px 25px rgba(26, 179, 148, 0.3);
-        transition: all 0.3s ease;
-        position: relative;
+      .video-container .embed-responsive {
+        border-radius: 10px;
         overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
       }
 
-      .video-play-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 35px rgba(26, 179, 148, 0.4);
-        background: linear-gradient(45deg, #18a085, #1ab394);
-      }
-
-      .video-play-btn i {
-        font-size: 24px;
-        margin-right: 10px;
-        vertical-align: middle;
+      .video-container .embed-responsive:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
       }
 
       .video-description {
-        margin-top: 15px;
+        margin-top: 20px;
         color: #676a6c;
         font-size: 16px;
         font-weight: 300;
-      }
-
-      .modal-dialog {
-        max-width: 900px;
-      }
-
-      .modal-content {
-        border-radius: 10px;
-        border: none;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-      }
-
-      .modal-header {
-        background: #1ab394;
-        color: white;
-        border-radius: 10px 10px 0 0;
-        border: none;
-        padding: 20px 30px;
-      }
-
-      .modal-title {
-        font-weight: 600;
-        font-size: 20px;
-      }
-
-      .close {
-        color: white;
-        opacity: 0.8;
-        font-size: 28px;
-        font-weight: 300;
-      }
-
-      .close:hover {
-        opacity: 1;
-        color: white;
-      }
-
-      .modal-body {
-        padding: 0;
-        background: #000;
-      }
-
-      .embed-responsive {
-        border-radius: 0 0 10px 10px;
-      }
-
-      video {
-        width: 100%;
-        height: auto;
+        text-align: center;
       }
 
       @media (max-width: 768px) {
-        .video-play-btn {
-          padding: 15px 30px;
-          font-size: 16px;
+        .video-container {
+          padding: 10px 0;
         }
-
-        .video-play-btn i {
-          font-size: 20px;
-        }
-
-        .modal-dialog {
-          margin: 10px;
+        
+        .video-description {
+          font-size: 14px;
+          margin-top: 15px;
         }
       }
     </style>
@@ -313,27 +246,24 @@
       </div>
       <div class="row features-block">
         <div class="col-lg-6 features-text wow fadeInLeft">
-          <small>Quer entender como tudo funciona na prática? </small>
+          <h2>Quer entender como tudo funciona na prática? </h2>
 
           <p>
             Assista ao vídeo ao lado e descubra como nossa solução pode
             transformar a forma como sua equipe lida com demandas trabalhistas.
           </p>
         </div>
-        <div class="col-lg-6 text-right wow fadeInRight">
-          <div class="video-container">
-            <button
-              type="button"
-              class="btn btn-primary btn-lg video-play-btn"
-              data-toggle="modal"
-              data-target="#videoModal"
-            >
-              <i class="fa fa-play-circle"></i>
-              <span>Assistir Vídeo</span>
-            </button>
-            <p class="video-description">Veja como funciona nossa solução</p>
+          <div class="col-lg-6 text-right wow fadeInRight">
+            <div class="video-container">
+              <div class="embed-responsive embed-responsive-16by9">
+                <video id="videoPlayer" class="embed-responsive-item" controls preload="metadata" poster="img/landing/perspective.png">
+                  <source src="video/Imptec - Passo a Passo.mp4" type="video/mp4">
+                  Seu navegador não suporta o elemento de vídeo.
+                </video>
+              </div>
+              <p class="video-description">Veja como funciona nossa solução</p>
+            </div>
           </div>
-        </div>
       </div>
     </section>
 
@@ -887,22 +817,7 @@
     <script src="js/inspinia.js"></script>
     <script src="js/plugins/pace/pace.min.js"></script>
     <script src="js/plugins/wow/wow.min.js"></script>
-
-    <script>
-      $('#videoModal').on('hidden.bs.modal', function () {
-        var $video = $(this).find('video')[0];
-        if ($video) {
-          $video.pause(); // pausa o vídeo
-          $video.currentTime = 0; // reseta para o início (opcional)
-        }
     
-        // Se estiver usando <iframe> (ex: YouTube), reseta o src
-        var $iframe = $(this).find('iframe');
-        if ($iframe.length) {
-          $iframe.attr('src', $iframe.attr('src'));
-        }
-      });
-    </script>
     <script>
       $(document).ready(function () {
         $("body").scrollspy({
@@ -956,99 +871,7 @@
       })();
 
       new WOW().init();
-
-      
-
-       // Função para parar o vídeo definitivamente
-       function stopVideoCompletely() {
-         var video = document.getElementById("videoPlayer");
-         if (video) {
-           // Pausa o vídeo
-           video.pause();
-           // Volta ao início
-           video.currentTime = 0;
-           // Remove todos os atributos de reprodução
-           video.removeAttribute('autoplay');
-           video.removeAttribute('loop');
-           video.removeAttribute('muted');
-           // Remove a fonte completamente
-           video.src = '';
-           video.load();
-           // Força o navegador a liberar recursos
-           video.remove();
-           // Recria o elemento de vídeo
-           var newVideo = document.createElement('video');
-           newVideo.id = 'videoPlayer';
-           newVideo.className = 'embed-responsive-item';
-           newVideo.controls = true;
-           newVideo.innerHTML = '<source src="video/Imptec - Passo a Passo.mp4" type="video/mp4">Seu navegador não suporta o elemento de vídeo.';
-           document.querySelector('.embed-responsive').appendChild(newVideo);
-         }
-       }
-
-       // Para o vídeo quando o modal começar a fechar
-       $("#videoModal").on("hide.bs.modal", function () {
-         stopVideoCompletely();
-       });
-
-       // Para o vídeo quando o modal estiver completamente fechado
-       $("#videoModal").on("hidden.bs.modal", function () {
-         stopVideoCompletely();
-       });
-
-       // Para o vídeo quando clicar fora do modal
-       $("#videoModal").on("click", function (e) {
-         if (e.target === this) {
-           stopVideoCompletely();
-         }
-       });
-
-       // Para o vídeo quando pressionar ESC
-       $(document).on("keydown", function (e) {
-         if (e.keyCode === 27 && $("#videoModal").hasClass("in")) {
-           stopVideoCompletely();
-         }
-       });
-
-       // Para o vídeo quando a página perder foco
-       $(window).on("blur", function () {
-         if ($("#videoModal").hasClass("in")) {
-           stopVideoCompletely();
-         }
-       });
-
-       // Para o vídeo quando a página for escondida (mudança de aba)
-       $(document).on("visibilitychange", function() {
-         if (document.hidden && $("#videoModal").hasClass("in")) {
-           stopVideoCompletely();
-         }
-       });
     </script>
 
-    <!-- Video Modal -->
-    <div
-      class="modal fade"
-      id="videoModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="videoModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-body">
-            <div class="embed-responsive embed-responsive-16by9">
-              <video id="videoPlayer" class="embed-responsive-item" controls>
-                <source
-                  src="video/Imptec - Passo a Passo.mp4"
-                  type="video/mp4"
-                />
-                Seu navegador não suporta o elemento de vídeo.
-              </video>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </body>
 </html>
