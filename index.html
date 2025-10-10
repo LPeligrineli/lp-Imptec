@@ -46,6 +46,22 @@
       text-align: center;
     }
 
+    /* Pricing Plan Hover Styles */
+    .pricing-plan {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .pricing-plan:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .pricing-plan.selected {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
     @media (max-width: 768px) {
       .video-container {
         padding: 10px 0;
@@ -192,7 +208,7 @@
       </div>
     </div>
     <div class="row features-block">
-      <div class="col-lg-6 features-text wow fadeInLeft">
+      <div class=" features-text wow fadeInLeft">
         <h2>Quer entender como tudo funciona na prática? </h2>
 
         <p>
@@ -200,7 +216,7 @@
           transformar a forma como sua equipe lida com demandas trabalhistas.
         </p>
       </div>
-      <div class="col-lg-6 text-right wow fadeInRight">
+      <div class=" text-center wow fadeInRight">
         <div class="video-container">
           <div class="embed-responsive embed-responsive-16by9">
             <video id="videoPlayer" class="embed-responsive-item" controls preload="metadata"
@@ -634,6 +650,7 @@
       <div class="row m-b-lg">
         <div class="col-lg-3 col-lg-offset-3">
           <address>
+            <img src="./img/landing/imptec-logo.png" alt="Imptec Logo" class="img-responsive" style="max-width: 50px; height: auto; margin-bottom: 1rem;">
             <p title="Phone"><i class="fa fa-phone"></i> Telefone:</abbr> (11) 94778-4588
           </address>
         </div>
@@ -648,9 +665,6 @@
           <a href="mailto:contato@imptec.com.br" class="btn btn-primary"><i class="fa fa-envelope"></i> Enviar e-mail</a>
           <p class="m-t-sm">Ou siga-nos nas redes sociais</p>
           <ul class="list-inline social-icon">
-            <li>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-            </li>
             <li>
               <a href="#"><i class="fa fa-facebook"></i></a>
             </li>
@@ -760,7 +774,16 @@
       colDiv.className = 'col-lg-3 wow zoomIn';
 
       const ul = document.createElement('ul');
-      ul.className = `pricing-plan list-unstyled${plan.selected ? ' selected' : ''}`;
+      ul.className = 'pricing-plan list-unstyled';
+
+      // Adicionar eventos de hover
+      ul.addEventListener('mouseenter', function() {
+        this.classList.add('selected');
+      });
+      
+      ul.addEventListener('mouseleave', function() {
+        this.classList.remove('selected');
+      });
 
       // Título
       const titleLi = document.createElement('li');
@@ -793,10 +816,6 @@
 
       // Botão
       const buttonLi = document.createElement('li');
-      if (plan.selected) {
-        buttonLi.className = 'plan-action';
-      }
-      
       const button = document.createElement('a');
       button.className = 'btn btn-primary btn-xs';
       button.href = plan.buttonLink;
