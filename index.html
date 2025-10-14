@@ -873,21 +873,12 @@
       const buttonLi = document.createElement('li');
       const button = document.createElement('a');
       button.className = 'btn btn-primary btn-xs';
-      button.href = plan.buttonLink;
+      button.href = plan.whatsappLink;
       button.target = '_blank';
-      button.textContent = plan.buttonText;
+      button.innerHTML = '<i class="fa fa-pencil"></i> Assinar';
       buttonLi.appendChild(button);
       ul.appendChild(buttonLi);
 
-      // WhatsApp Link
-      const whatsappLi = document.createElement('li');
-      const whatsapp = document.createElement('a');
-      whatsapp.className = 'btn btn-primary btn-xs whatsapp-button';
-      whatsapp.href = plan.whatsappLink;
-      whatsapp.target = '_blank';
-      whatsapp.innerHTML = '<i class="fa fa-whatsapp"></i> WhatsApp';
-      whatsappLi.appendChild(whatsapp);
-      ul.appendChild(whatsappLi);
 
       colDiv.appendChild(ul);
       return colDiv;
