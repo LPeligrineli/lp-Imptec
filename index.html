@@ -86,6 +86,52 @@
       color: white;
     }
 
+    /* Pricing Cards Equal Height */
+    #pricing-plans .col-lg-3 {
+      display: flex;
+      margin-bottom: 30px;
+    }
+
+    .pricing-plan {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      min-height: 400px; /* Altura mínima fixa para todos os cards */
+    }
+
+    .pricing-plan li {
+      flex-grow: 0;
+    }
+
+    .pricing-plan .pricing-desc {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      min-height: 80px; /* Altura mínima maior para a descrição */
+      padding: 10px 0;
+    }
+
+    .pricing-plan .pricing-price {
+      flex-grow: 0;
+      min-height: 50px; /* Altura mínima para a seção de preço */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .pricing-plan li:last-child {
+      margin-top: auto;
+    }
+
+    /* Garantir que todos os cards tenham a mesma altura */
+    @media (min-width: 992px) {
+      #pricing-plans .col-lg-3 {
+        height: 450px; /* Altura fixa para desktop */
+      }
+    }
+
     /* WhatsApp Fixed Button */
     .whatsapp-fixed {
       position: fixed;
@@ -176,7 +222,7 @@
               precisos.
             </p>
             <p>
-              <a class="btn btn-lg btn-primary" href="https://wa.me/5511994688228" target="_blank" role="button">
+              <a class="btn btn-lg btn-primary" href="https://wa.me/5511947784588" target="_blank" role="button">
                 ENTRE EM CONTATO
               </a>
             </p>
@@ -263,7 +309,7 @@
       </div>
     </div>
     <div class="row features-block">
-      <div class=" features-text wow fadeInLeft">
+      <div class=" features-text wow fadeInLeft text-center">
         <h2>Quer entender como tudo funciona na prática? </h2>
 
         <p>
@@ -717,16 +763,8 @@
       </div>
       <div class="row">
         <div class="col-lg-12 text-center">
-          <a href="mailto:contato@imptec.com.br" class="btn btn-primary"><i class="fa fa-envelope"></i> Enviar e-mail</a>
+          <a href="mailto:imptec.automacao@gmail.combr" class="btn btn-primary"><i class="fa fa-envelope"></i> Enviar e-mail</a>
           <p class="m-t-sm">Ou siga-nos nas redes sociais</p>
-          <ul class="list-inline social-icon">
-            <li>
-              <a href="#"><i class="fa fa-facebook"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa fa-linkedin"></i></a>
-            </li>
-          </ul>
         </div>
       </div>
       <div class="row">
@@ -827,6 +865,8 @@
     function createPlanElement(plan) {
       const colDiv = document.createElement('div');
       colDiv.className = 'col-lg-3 wow zoomIn';
+      colDiv.style.display = 'flex ';
+      colDiv.style.height = '450px'; // Altura fixa para todos os cards
 
       const ul = document.createElement('ul');
       ul.className = 'pricing-plan list-unstyled';
