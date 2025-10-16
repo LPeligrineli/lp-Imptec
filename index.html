@@ -823,8 +823,12 @@
         var sy = scrollY();
         if (sy >= changeHeaderOn) {
           $(header).addClass("navbar-scroll");
+          // Trocar para logo branco (desktop e mobile)
+          $('.navbar .img-responsive[alt="Imptec Logo"]').attr('src', './img/landing/imptec-logo_V2.png');
         } else {
           $(header).removeClass("navbar-scroll");
+          // Voltar para logo original (desktop e mobile)
+          $('.navbar .img-responsive[alt="Imptec Logo"]').attr('src', './img/landing/imptec-logo-branco.png');
         }
         didScroll = false;
       }
