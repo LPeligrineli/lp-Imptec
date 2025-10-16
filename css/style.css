@@ -7183,9 +7183,13 @@ body.landing-page {
   text-align: center;
   color: #aeaeae;
 }
-.landing-page .pricing-plan .pricing-price span {
+.landing-page .pricing-plan .pricing-price span.navy {
   font-weight: 700;
   color: #1ab394;
+}
+.landing-page .pricing-plan .pricing-price span.navy span {
+  color: #aeaeae;
+  font-weight: normal;
 }
 .landing-page li.pricing-desc {
   font-size: 13px;

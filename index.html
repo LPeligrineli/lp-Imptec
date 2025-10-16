@@ -197,7 +197,7 @@
             <li><a class="page-scroll" href="#contact">Contato</a></li>
             <a class="nav navbar-brand" style="margin-left: 2rem;" href="https://imp-tec.com/login">Acessar Ferramenta</a>
           </ul>
-          <img src="./img/landing/imptec-logo_V2.png" alt="Imptec Logo" class="img-responsive" style="max-width: 50px; height: auto; margin-bottom: 1rem;">
+          <img src="./img/landing/imptec-logo_V2.png" alt="Imptec Logo" class="img-responsive" style="max-width: 200px; height: auto; margin-top: 1rem;">
         </div>
       </div>
     </nav>
@@ -764,7 +764,6 @@
       <div class="row">
         <div class="col-lg-12 text-center">
           <a href="mailto:imptec.automacao@gmail.combr" class="btn btn-primary"><i class="fa fa-envelope"></i> Enviar e-mail</a>
-          <p class="m-t-sm">Ou siga-nos nas redes sociais</p>
         </div>
       </div>
       <div class="row">
@@ -895,7 +894,7 @@
       // Preço
       const priceLi = document.createElement('li');
       priceLi.className = 'pricing-price';
-      priceLi.innerHTML = `<span>${plan.currency}${plan.price}</span> ${plan.period ? `/ ${plan.period}` : ''}`;
+      priceLi.innerHTML = `<span class="navy">${plan.currency}${plan.price} <span>${plan.period ? ` / ${plan.period}` : ''}</span></span>`;
       ul.appendChild(priceLi);
 
       // Features
