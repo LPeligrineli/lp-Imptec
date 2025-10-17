@@ -3,13 +3,13 @@
     {
       "id": "Essencial",
       "title": "ESSENCIAL",
-      "description": "ATÉ 20 CALCULOS POR MÊS E DEMAIS R$ 16,70 POR PROCESSAMENTO",
+      "description": "ATÉ 20 CÁLCULOS POR MÊS E DEMAIS R$ 16,70 POR PROCESSAMENTO",
       "price": 334,
       "currency": "R$",
       "period": "mês",
       "features": [
-        "Analise Processual",
-        "Vizualização de Analise",
+        "Análise Processual",
+        "Visualização de Análise",
         "Disponibilização PJC"
               
       ],
@@ -21,13 +21,13 @@
     {
       "id": "Inicial",
       "title": "INICIAL",
-      "description": "ATÉ 30 CALCULOS POR MÊS E DEMAIS R$ 15,90 POR PROCESSAMENTO",
+      "description": "ATÉ 30 CÁLCULOS POR MÊS E DEMAIS R$ 15,90 POR PROCESSAMENTO",
       "price": 477,
       "currency": "R$",
       "period": "mês",
       "features": [
-        "Analise Processual",
-        "Visualização de Analise",
+        "Análise Processual",
+        "Visualização de Análise",
         "Disponibilização PJC"
       ],
       "buttonText": "Assinar",
@@ -38,13 +38,13 @@
     {
       "id": "Profissional",
       "title": "PROFISSIONAL",
-      "description": "ATÉ 100 CALCULOS POR MÊS E DEMAIS R$ 15,15 POR PROCESSAMENTO",
+      "description": "ATÉ 100 CÁLCULOS POR MÊS E DEMAIS R$ 15,15 POR PROCESSAMENTO",
       "price": 1515,
       "currency": "R$",
       "period": "mês",
       "features": [
-        "Analise Processual",
-        "Vizualização de Analise",
+        "Análise Processual",
+        "Visualização de Análise",
         "Disponibilização PJC"
       ],
       "buttonText": "Assinar",
@@ -55,13 +55,13 @@
     {
       "id": "customizada",
       "title": "CUSTOMIZADA",
-      "description": "ACIMA DE 1000 CALCULOS POR MÊS",
+      "description": "ACIMA DE 1000 CÁLCULOS POR MÊS",
       "price": "",
       "currency": "Entre em contato",
       "period": "",
       "features": [
-        "Analise Processual",
-        "Vizualização de Analise",
+        "Análise Processual",
+        "Visualização de Análise",
         "Disponibilização PJC"
       ],
       "buttonText": "Entrar em contato",
